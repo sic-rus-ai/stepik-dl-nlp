@@ -43,8 +43,7 @@
 
 2) Запустите ноутбук.
 
-3) Чтобы выкачать на colab библиотеку dlnlputils, не забудьте выполнить команду:
+3) Чтобы выкачать на colab библиотеку dlnlputils, не забудьте выполнить команду в первой ячейке:
 
-`git clone https://github.com/Samsung-IT-Academy/stepik-dl-nlp.git`
-
-
+    !git clone https://github.com/Samsung-IT-Academy/stepik-dl-nlp.git
+    import sys; sys.path.append('/content/stepik-dl-nlp')
