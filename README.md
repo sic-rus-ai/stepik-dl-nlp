@@ -49,3 +49,5 @@
 !git clone https://github.com/Samsung-IT-Academy/stepik-dl-nlp.git
 import sys; sys.path.append('/content/stepik-dl-nlp')
 ```
+
+4) Не забудьте настроить `device='cpu'` или `device='cuda'`, а также выбрать подходящий Runtime в Google Colab (CPU/TPU/GPU).
