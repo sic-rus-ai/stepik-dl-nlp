@@ -12,3 +12,5 @@ youtokentome
 seaborn
 ipykernel
 ipython
+pyconll
+
