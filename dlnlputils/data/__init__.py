@@ -3,7 +3,5 @@ from .bag_of_words import *
 from .embeddings import *
 from .nnets import *
 from .pos import *
-from .siamese import *
-from .qa import *
 from .lemmatize import *
 from .poetry import *
