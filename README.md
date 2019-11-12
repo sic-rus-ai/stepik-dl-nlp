@@ -51,3 +51,13 @@ import sys; sys.path.append('/content/stepik-dl-nlp')
 ```
 
 4) Не забудьте настроить `device='cpu'` или `device='cuda'`, а также выбрать подходящий Runtime в Google Colab (CPU/TPU/GPU).
+
+
+## Датасеты
+
+New York Times
+
+https://github.com/nytimes/ingredient-phrase-tagger 
+
+Copyright (c) 2016 The New York Times Company
+Licensed under the Apache License, Version 2.0 
