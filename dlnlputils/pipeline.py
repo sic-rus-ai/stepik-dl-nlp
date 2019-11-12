@@ -192,7 +192,7 @@ def predict_with_model(model, dataset, device=None, batch_size=32, num_workers=0
     labels = []
     with torch.no_grad():
         import tqdm
-        for batch_x, batch_y in tqdm.tqdm_notebook(dataloader, total=len(dataset)/batch_size):
+        for batch_x, batch_y in tqdm.tqdm(dataloader, total=len(dataset)/batch_size):
             batch_x = copy_data_to_device(batch_x, device)
 
             if return_labels:
