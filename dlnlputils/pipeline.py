@@ -41,7 +41,7 @@ def print_grad_stats(model):
 
 def train_eval_loop(model, train_dataset, val_dataset, criterion,
                     lr=1e-4, epoch_n=10, batch_size=32,
-                    device='cuda', early_stopping_patience=10, l2_reg_alpha=0,
+                    device=None, early_stopping_patience=10, l2_reg_alpha=0,
                     max_batches_per_epoch_train=10000,
                     max_batches_per_epoch_val=1000,
                     data_loader_ctor=DataLoader,
@@ -70,6 +70,8 @@ def train_eval_loop(model, train_dataset, val_dataset, criterion,
         - среднее значение функции потерь на валидации на лучшей эпохе
         - лучшая модель
     """
+    if device is None:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
     device = torch.device(device)
     model.to(device)
 
@@ -170,7 +172,7 @@ def train_eval_loop(model, train_dataset, val_dataset, criterion,
     return best_val_loss, best_model
 
 
-def predict_with_model(model, dataset, device='cuda', batch_size=32, num_workers=0, return_labels=False):
+def predict_with_model(model, dataset, device=None, batch_size=32, num_workers=0, return_labels=False):
     """
     :param model: torch.nn.Module - обученная модель
     :param dataset: torch.utils.data.Dataset - данные для применения модели
@@ -178,6 +180,8 @@ def predict_with_model(model, dataset, device='cuda', batch_size=32, num_workers
     :param batch_size: количество примеров, обрабатываемых моделью за одну итерацию
     :return: numpy.array размерности len(dataset) x *
     """
+    if device is None:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
     results_by_batch = []
 
     device = torch.device(device)
