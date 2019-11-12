@@ -1,0 +1,10 @@
+index,input,name,qty,range_end,unit,comment
+0,"1 1/4 cups cooked and pureed fresh butternut squash, or 1 10-ounce package frozen squash, defrosted",butternut squash,1.25,0.0,cup,"cooked and pureed fresh, or 1 10-ounce package frozen squash, defrosted"
+1,"1 cup peeled and cooked fresh chestnuts (about 20), or 1 cup canned, unsweetened chestnuts",chestnuts,1.0,0.0,cup,"peeled and cooked fresh (about 20), or 1 cup canned, unsweetened"
+2,"1 medium-size onion, peeled and chopped",onion,1.0,0.0,,"medium-size, peeled and chopped"
+3,"2 stalks celery, chopped coarse",celery,2.0,0.0,stalk,chopped coarse
+4,1 1/2 tablespoons vegetable oil,vegetable oil,1.5,0.0,tablespoon,
+5,,water,0.5,0.0,cup,
+6,"2 tablespoons unflavored gelatin, dissolved in 1/2 cup water",gelatin,2.0,0.0,tablespoon,"unflavored, dissolved in 1/2 cup water"
+7,Salt,Salt,0.0,0.0,,
+8,1 cup canned plum tomatoes with juice,plum tomatoes,1.0,0.0,cup,"canned, with juice"
