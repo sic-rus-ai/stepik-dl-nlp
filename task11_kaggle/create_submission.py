@@ -2,10 +2,11 @@ import argparse
 import pandas as pd
 import numpy as np
 import string
+import pickle
 from nltk.util import ngrams
 
 
-def generate_csv(input_file='test.csv', output_file='submission.csv'):
+def generate_csv(input_file='predicted_titles.csv', output_file='submission.csv', voc_file='vocs.pkl'):
     '''
     Generates file in format required for submitting result to Kaggle
     
@@ -13,27 +14,24 @@ def generate_csv(input_file='test.csv', output_file='submission.csv'):
         input_file (str) : path to csv file with your predicted titles.
                            Should have two fields: abstract and title
         output_file (str) : path to output submission file
+        voc_file (str) : path to voc.pkl file
     '''
     data = pd.read_csv(input_file)
+    with open(voc_file, 'rb') as voc_file:
+        vocs = pickle.load(voc_file)
 
     with open(output_file, 'w') as res_file:
         res_file.write('Id,Predict\n')
         
     output_idx = 0
     for row_idx, row in data.iterrows():
-        src = row['abstract']
-        src = src.translate(str.maketrans('', '', string.punctuation)).lower().split()
-        src.extend(['_'.join(ngram) for ngram in list(ngrams(src, 2)) + list(ngrams(src, 3))])
-
         trg = row['title']
         trg = trg.translate(str.maketrans('', '', string.punctuation)).lower().split()
         trg.extend(['_'.join(ngram) for ngram in list(ngrams(trg, 2)) + list(ngrams(trg, 3))])
-
-        VOCAB = set(src)
-        VOCAB_stoi = {word : i for i, word in enumerate(VOCAB)}
-
-        trg_intersection = set(VOCAB).intersection(set(trg))
-        trg_vec = np.zeros(len(VOCAB))    
+        
+        VOCAB_stoi = vocs[row_idx]
+        trg_intersection = set(VOCAB_stoi.keys()).intersection(set(trg))
+        trg_vec = np.zeros(len(VOCAB_stoi))    
 
         for word in trg_intersection:
             trg_vec[VOCAB_stoi[word]] = 1
@@ -56,6 +54,10 @@ if __name__ == '__main__':
         help='Path to kaggle submission file',
         type=str,
     )
+    parser.add_argument(
+        '--voc_file',
+        help='Path to voc.pkl file',
+        type=str,
+    )
     args = parser.parse_args()
-    generate_csv(args.input_file, args.output_file)
-
+    generate_csv(args.input_file, args.output_file, args.voc_file)
