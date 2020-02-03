@@ -46,11 +46,15 @@
 3) Чтобы выкачать на colab библиотеку dlnlputils, не забудьте выполнить команду в первой ячейке:
 
 ```
-!git clone https://github.com/Samsung-IT-Academy/stepik-dl-nlp.git
-import sys; sys.path.append('/content/stepik-dl-nlp')
+!git clone https://github.com/Samsung-IT-Academy/stepik-dl-nlp.git && pip install -r stepik-dl-nlp/requirements.txt
+import sys; sys.path.append('./stepik-dl-nlp')
 ```
 
 4) Не забудьте настроить `device='cpu'` или `device='cuda'`, а также выбрать подходящий Runtime в Google Colab (CPU/TPU/GPU).
+
+А также следуйте комментариям касательно путей внутри ноутбуков.
+
+Ноутбуки также работают и на Kaggle Notebooks.
 
 
 ## Датасеты
