@@ -1,3 +1,4 @@
+gensim
 scikit-learn
 spacy-udpipe
 pymorphy2
@@ -13,4 +14,5 @@ seaborn
 ipykernel
 ipython
 pyconll
+youtokentome
 
