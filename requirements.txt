@@ -13,4 +13,4 @@ seaborn
 ipykernel
 ipython
 pyconll
-
+gensim==3.8.1
